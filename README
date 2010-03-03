@@ -1,0 +1,23 @@
+What?
+This is a lightweight and simple C++ wrapper for the MySQL C API.  This allows the user to create one database object for which to interact with, and handles small annoyances such as dealing with C-style strings automatically for the user.
+
+When?
+A year ago?  Two?  Don't honestly remember exactly when I wrote this, been a while though :-)  Just ran across the project again on a backup hard drive, so I decided to dust it off and complete it.  If nothing else, placing it here means I won't lose it again...
+
+Why?
+When I first wrote this wrapper, I was unable to find any good quick-to-implement C++ wrappers for the MySQL C API, so I created this.  There's likely more options now, but I decided to put this up regardless, as there still may be some use for it.
+
+Who?
+I'm Jack Carlson, senior at Michigan State University.
+
+What Next?
+Short-term ToDo:
+	- prepared statements
+	- better error handling (rather than just exiting)
+	- some sort of documentation
+	- various cleanup
+Long-term ToDo/Research Thoughts:
+	- way to directly insert/retrieve objects?
+	- database-agnostic?
+	- more makefile options/configure script?
+	- lots more...
