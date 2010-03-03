@@ -8,7 +8,7 @@ Why?
 When I first wrote this wrapper, I was unable to find any good quick-to-implement C++ wrappers for the MySQL C API, so I created this.  There's likely more options now, but I decided to put this up regardless, as there still may be some use for it.
 
 Who?
-I'm Jack Carlson, senior at Michigan State University.
+I'm Jack Carlson, Computer Science senior at Michigan State University.
 
 What Next?
 Short-term ToDo:
