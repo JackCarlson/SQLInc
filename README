@@ -13,9 +13,11 @@ I'm Jack Carlson, Computer Science senior at Michigan State University.
 What Next?
 Short-term ToDo:
 	- prepared statements
-	- better error handling (rather than just exiting)
+	- better error handling (rather than just exiting/returning strings)
 	- some sort of documentation
+	- improve the test_connection program (automatically create/delete needed tables, ensure all implemented SQLInc methods are used/explained, etc)
 	- various cleanup
+	- test compiling / running or multiple systems
 Long-term ToDo/Research Thoughts:
 	- way to directly insert/retrieve objects?
 	- database-agnostic?

@@ -2,7 +2,7 @@
 
 /*
 *
-*	Implementation of class methods for the sql_connection object, a C++ wrapper for the MYSQL C API
+*	Implementation of class methods for the sqlinc object, a C++ wrapper for the MYSQL C API
 *
 */
 
@@ -45,16 +45,13 @@ string sqlinc::escape_string(string in_string)
 
 string sqlinc::query(string in_string)
 {
-	int return_val;
-	return_val = mysql_real_query(mysql, in_string.c_str(), (unsigned) in_string.length());
+	int return_val = mysql_real_query(mysql, in_string.c_str(), (unsigned) in_string.length());
 
 	if (return_val == 0)
 	{
 		use_result();
 		return "All Good";
 	}
-//	else if (return_val == CR_COMMANDS_OUT_OF_SYNC)
-//		return "Commands executed in improper order.";
 	else
 	{
 		return "Unknown Query Error";
@@ -102,7 +99,7 @@ void sqlinc::check_error()
 
 map<string, string> sqlinc::get_array()
 {
-	MYSQL_FIELD *field;
+	MYSQL_FIELD * field;
 
 	if (col_names.empty())
 		for (int i = 0; (field = mysql_fetch_field(result)); i++)
@@ -139,4 +136,3 @@ void sqlinc::use_result()
 	free_result();
 	result = mysql_use_result(mysql);
 }
-

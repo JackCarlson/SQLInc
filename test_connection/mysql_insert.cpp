@@ -9,6 +9,7 @@
 *	| id           | int(11)      | NO   | PRI | NULL    | auto_increment |
 *	| string_field | varchar(255) | YES  |     | NULL    |                |
 *	+--------------+--------------+------+-----+---------+----------------+
+*
 */
 
 #include <iostream>

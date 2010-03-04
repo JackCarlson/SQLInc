@@ -6,17 +6,17 @@
 #include <map>
 #include <vector>
 
-// include mySQL
+// include MySQL
 #include "/sw/include/mysql/mysql.h"
 
 using namespace std;
-
 
 /*
 *
 *	SQL Connection Object
 *
 */
+
 class sqlinc
 {
 public:
