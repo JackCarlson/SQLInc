@@ -25,10 +25,6 @@ public:
 
 	string query(string in_string);
 
-	void free_result();
-
-	void use_result();
-
 	bool fetch_row();
 
 	unsigned long long num_rows();
@@ -40,9 +36,14 @@ public:
 	void check_error();
 
 	MYSQL_ROW getRow() {return row;}
-
+	
 private:
-	MYSQL mysql;
+
+	void free_result();
+	
+	void use_result();
+
+	MYSQL * mysql;
 	MYSQL_RES * result;
 	MYSQL_ROW row;
 };

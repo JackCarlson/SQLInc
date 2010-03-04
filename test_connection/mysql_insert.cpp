@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
 
 
 	// insert a new row into the test table
-	string insert_value = mysql_obj.escape_string("Insertion String");
+	string insert_value = mysql_obj.escape_string("New Value of Insertion String");
 	query = "INSERT INTO test_table (string_field) VALUES (\"" + insert_value + "\");";
 	cout << "Running:\n" << query << "\n..." << endl;
 	mysql_obj.query(query);
@@ -37,7 +37,6 @@ int main(int argc, char *argv[])
 	// print out all the rows in the test table
 	query = "SELECT * FROM test_table;";
 	mysql_obj.query(query);
-	mysql_obj.use_result();
 	
 	// if an error occurs, display the error and quit the program
 	mysql_obj.check_error();
@@ -47,7 +46,6 @@ int main(int argc, char *argv[])
 		cout << "\nid: " << mysql_obj.getRow()[0];
 		cout << "\nstring_field: " << mysql_obj.getRow()[1] << endl;
 	}
-	mysql_obj.free_result();
 
 
 
