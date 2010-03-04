@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
 
 
 	// insert a new row into the test table
-	string insert_value = mysql_obj.escape_string("New Value of Insertion String");
+	string insert_value = mysql_obj.escape_string("One more time around...");
 	query = "INSERT INTO test_table (string_field) VALUES (\"" + insert_value + "\");";
 	cout << "Running:\n" << query << "\n..." << endl;
 	mysql_obj.query(query);
@@ -43,8 +43,8 @@ int main(int argc, char *argv[])
 	
 	while (mysql_obj.fetch_row())
 	{
-		cout << "\nid: " << mysql_obj.getRow()[0];
-		cout << "\nstring_field: " << mysql_obj.getRow()[1] << endl;
+		cout << "\nid: " << mysql_obj.get_row()[0];
+		cout << "\nstring_field: " << mysql_obj.get_array()["string_field"] << endl;
 	}
 
 

@@ -3,9 +3,12 @@
 
 #include <iostream>
 #include <string>
+#include <map>
+#include <vector>
 
 // include mySQL
 #include "/sw/include/mysql/mysql.h"
+
 using namespace std;
 
 
@@ -35,13 +38,18 @@ public:
 
 	void check_error();
 
-	MYSQL_ROW getRow() {return row;}
+	MYSQL_ROW get_row() {return row;}
+	
+	map<string, string> get_array();
 	
 private:
 
 	void free_result();
 	
 	void use_result();
+
+	vector<string> col_names_vect;
+	map<string, string> col_names;
 
 	MYSQL * mysql;
 	MYSQL_RES * result;

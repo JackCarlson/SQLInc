@@ -57,28 +57,9 @@ string sqlinc::query(string in_string)
 //		return "Commands executed in improper order.";
 	else
 	{
-		use_result();
 		return "Unknown Query Error";
 	}
 }
-
-// private
-void sqlinc::free_result()
-{
-	if (result != NULL)
-	{
-		mysql_free_result(result);
-		result = NULL;
-	}
-}
-
-// private
-void sqlinc::use_result()
-{
-	free_result();
-	result = mysql_use_result(mysql);
-}
-
 
 bool sqlinc::fetch_row()
 {
@@ -118,3 +99,44 @@ void sqlinc::check_error()
 		exit(0);
 	}
 }
+
+map<string, string> sqlinc::get_array()
+{
+	MYSQL_FIELD *field;
+
+	if (col_names.empty())
+		for (int i = 0; (field = mysql_fetch_field(result)); i++)
+			col_names_vect.push_back(field->name);
+	
+	for (unsigned i = 0; i < col_names_vect.size(); i++)
+		col_names[col_names_vect.at(i)] = row[i];
+
+	free(field);
+
+	return col_names;
+}
+
+
+///////////////////////////////////////////
+///////////////// private /////////////////
+///////////////////////////////////////////
+
+
+void sqlinc::free_result()
+{
+	if (result != NULL)
+	{
+		mysql_free_result(result);
+		result = NULL;
+	}
+	
+	col_names.clear();
+	col_names_vect.clear();
+}
+
+void sqlinc::use_result()
+{
+	free_result();
+	result = mysql_use_result(mysql);
+}
+
